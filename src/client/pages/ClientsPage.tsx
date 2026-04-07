@@ -160,7 +160,7 @@ export default function ClientsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Clientes</h1>
-            <p className="text-gray-600">Gerir clientes e entidades</p>
+            <p className="text-gray-600">Gerir clientes e entidades memememem</p>
           </div>
           <Button onClick={() => setShowDialog(true)}>
             <Plus className="h-4 w-4" />
@@ -203,19 +203,21 @@ export default function ClientsPage() {
             {filteredClients.map((client) => (
               <Card key={client._id} className="hover:shadow-md transition-shadow">
                 <CardContent className="pt-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-start gap-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3 flex-1 min-w-0">
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <Building2 className="h-5 w-5 text-blue-600" />
                       </div>
-                      <div className="min-w-0">
-                        <h3 className="font-semibold text-gray-900 truncate">{client.name}</h3>
+                      <div className="min-w-0 overflow-hidden">
+                        <h3 className="font-semibold text-gray-900 truncate" title={client.name}>
+                          {client.name}
+                        </h3>
                         {client.nif && (
-                          <p className="text-sm text-gray-500">NIF: {client.nif}</p>
+                          <p className="text-sm text-gray-500 truncate">NIF: {client.nif}</p>
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 flex-shrink-0">
                       <Button
                         variant="ghost"
                         size="icon"
